@@ -1,22 +1,20 @@
 import axios from "axios";
 import { store } from "../store";
-import { usersApi } from "../store/api/users/usersApi";
 
 export const getCurrentUser = async() => {
-    const users = store.dispatch(usersApi.endpoints.getCurrentUser.initiate());
-    try{
-        const response = await users.unwrap();
-        return response;
-    }catch(err){
-        console.log(err);
-    }finally{
-        users.unsubscribe();
-    }
+    // const users = store.dispatch(usersApi.endpoints.getCurrentUser.initiate());
+    // try{
+    //     const response = await users.unwrap();
+    //     return response;
+    // }catch(err){
+    //     console.log(err);
+    // }finally{
+    //     users.unsubscribe();
+    // }
 
 }
 
 export const getDocuments = async(col) => {
-    let baseUrl = "http://localhost:4000/api/v1/";
     switch(col){
         case 'blogs':
             baseUrl = baseUrl + "blogs/"
@@ -73,7 +71,6 @@ export const getDocuments = async(col) => {
 
 
 export const getDocumentById = async(id, col) => {
-    console.log(id);
     let baseUrl = "http://localhost:4000/api/v1/";
     var response = []
     switch(col){
@@ -84,7 +81,7 @@ export const getDocumentById = async(id, col) => {
         default: 
             console.log("Default");
     }
-    console.log(response.data);
+
     return response.data
 }
 

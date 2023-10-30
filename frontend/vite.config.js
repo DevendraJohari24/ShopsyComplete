@@ -8,7 +8,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       "/api": {
-        target: "https://ztcf5y-5000.csb.app",
+        target: "https://localhost:4000/",
         changeOrigin: true,
       },
     },

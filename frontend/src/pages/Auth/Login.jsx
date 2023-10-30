@@ -7,12 +7,12 @@ import { LoginSchema } from '../../components/Form/ValidationSchema';
 import Button from '../../components/UI/Button';
 import Loader from '../../components/UI/Loader';
 import { toastMessage } from '../../utils/toastMessage';
-import { useLoginMutation } from '../../store/auth/authApiSlice';
+// import { useLoginMutation } from '../../store/auth/authApiSlice';
 import { useDispatch } from 'react-redux';
-import { setCredentials } from '../../store/auth/authSlice';
+// import { setCredentials } from '../../store/auth/authSlice';
 
 const Login = () => {
-    const [login, {isLoading} ] = useLoginMutation();
+    // const [login, {isLoading} ] = useLoginMutation();
     const dispatch = useDispatch();
     const navigate = useNavigate();
 	const [error, setError] = useState(null);
@@ -22,23 +22,23 @@ const Login = () => {
     };
 
 	const handleSubmit = async (values, { setSubmitting }) => {
-		setSubmitting(true);
-        const {email, password} = values;
-        const formData = new FormData();
-        formData.set("email", email);
-        formData.set("password", password);
+		// setSubmitting(true);
+        // const {email, password} = values;
+        // const formData = new FormData();
+        // formData.set("email", email);
+        // formData.set("password", password);
 
-        try{
-            const userData = await login(formData).unwrap();
-            console.log(userData);
-            dispatch(setCredentials({...userData}))
-            toastMessage("User Login Successfully!!");
-            navigate("/user-profile");
-        }catch(err){
-            setError(err.data.message);
-        }finally{
-            setSubmitting(false);
-        }
+        // try{
+        //     // const userData = await login(formData).unwrap();
+        //     console.log(userData);
+        //     dispatch(setCredentials({...userData}))
+        //     toastMessage("User Login Successfully!!");
+        //     navigate("/user-profile");
+        // }catch(err){
+        //     setError(err.data.message);
+        // }finally{
+        //     setSubmitting(false);
+        // }
 
 
 	};

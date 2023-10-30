@@ -12,13 +12,12 @@ import SearchProducts from './Search';
 import { BiUser, BiCartAlt, BiMenu } from 'react-icons/bi';
 import * as cs from '../../utils/constants';
 import { useDispatch, useSelector } from "react-redux";
-import { modalActions } from "../../store/modal/modalSlice";
 import NavMobi from "./NavMobi";
-import { selectCurrentToken } from "../../store/auth/authSlice";
+import { modalActions } from "../../store/modal/modalSlice";
 
 export default function Header() {
   const [showDropdown, setShowDropdown] = useState(false);
-  const token = useSelector(selectCurrentToken);
+  // const token = useSelector(selectCurrentToken);
 	const headerRef = useRef(null);
 	const dropdownRef = useRef(null);
 
@@ -111,7 +110,8 @@ export default function Header() {
                 </Button>
                 {showDropdown ? (
                   <Dropdown
-                    items={token ? cs.authUserList : cs.userList}
+                    // items={token ? cs.authUserList : cs.userList}
+                    items={cs.userList}
                     handleClose={handleClose}
                   />
                 ) : null}

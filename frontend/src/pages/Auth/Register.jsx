@@ -9,10 +9,10 @@ import { consent } from '../../utils/constants';
 import { toastMessage } from '../../utils/toastMessage';
 import { useEffect, useState } from 'react';
 import Loader from '../../components/UI/Loader';
-import { useRegisterMutation } from '../../store/auth/authApiSlice';
+// import { useRegisterMutation } from '../../store/auth/authApiSlice';
 
 export default function Register() {
-    const [registerUser, registerUserResponse] = useRegisterMutation();
+    // const [registerUser, registerUserResponse] = useRegisterMutation();
     const [error, setError] = useState(null);
 	const navigate = useNavigate();
 	const initialValues = {
@@ -37,21 +37,21 @@ export default function Register() {
         userData.set("firstname", firstname);
         userData.set("lastname", lastname);
         userData.set("avatar", avatar);
-        registerUser(userData);        
+        // registerUser(userData);        
         setSubmitting(false);
 	};
 
-    useEffect(() => {
-        if(registerUserResponse.isSuccess && !registerUserResponse.isError){
-            toastMessage("User Created Successfully!!");
-            navigate("/login");
-        }
+    // useEffect(() => {
+    //     if(registerUserResponse.isSuccess && !registerUserResponse.isError){
+    //         toastMessage("User Created Successfully!!");
+    //         navigate("/login");
+    //     }
 
-        if(registerUserResponse.isError){
-            setError(registerUserResponse.error.data.message);
-            toastMessage(registerUserResponse.error.data.message);
-        }
-    }, [registerUserResponse, navigate])
+    //     if(registerUserResponse.isError){
+    //         setError(registerUserResponse.error.data.message);
+    //         toastMessage(registerUserResponse.error.data.message);
+    //     }
+    // }, [registerUserResponse, navigate])
 
 	const handleClick = () => navigate('/login');
 	

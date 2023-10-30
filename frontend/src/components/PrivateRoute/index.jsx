@@ -4,10 +4,10 @@ import { TbArrowBigLeftLines } from 'react-icons/tb';
 
 import * as cs from '../../utils/constants';
 import Button from '../UI/Button';
-import { selectCurrentToken } from '../../store/auth/authSlice';
+// import { selectCurrentToken } from '../../store/auth/authSlice';
 
 const PrivateRoute = ({ type, children }) => {
-    const token = useSelector(selectCurrentToken);
+    // const token = useSelector(selectCurrentToken);
     const location = useLocation();
 
 	// if (!currentUser) {
@@ -51,7 +51,7 @@ const PrivateRoute = ({ type, children }) => {
 	// }
 	return (
 		<>
-        {token ? (
+        {true ? (
             <>
             <Outlet />
 			{children}

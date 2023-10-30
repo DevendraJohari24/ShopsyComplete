@@ -1,10 +1,10 @@
 import { Outlet, useLocation } from "react-router-dom";
 import CommonSection from "../components/CommonSection";
-import { getData } from "../services/api";
 import Header from "./Header";
 import { Toaster } from "react-hot-toast";
 import FeatureFooter from "../features/HomeScreen/FeatureSection/FeatureFooter";
 import Footer from "./Footer";
+import { productsApiSlice } from "../store/slices/productsSlice";
 
 export default function RootLayout() {
   const location = useLocation();
@@ -37,7 +37,8 @@ export default function RootLayout() {
 
 
 export const loader = async() => {
-  const data = await getData();
+	const data = await productsApiSlice.useGetProductsQuery();
+  console.log(data);
   return data;
 }
 

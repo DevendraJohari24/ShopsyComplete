@@ -5,6 +5,7 @@ dotenv.config();
 import connectDB from "./config/db.js";
 import cookieParser from "cookie-parser";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
+
 import userRoutes from "./routes/userRoutes.js";
 import countdownRoutes from "./routes/countdownRoutes.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
@@ -19,6 +20,7 @@ import serviceRoutes from "./routes/serviceRoutes.js";
 import sliderRoutes from "./routes/sliderRoutes.js";
 import teamRoutes from "./routes/teamRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js"
+
 
 const port = process.env.PORT || 5000;
 

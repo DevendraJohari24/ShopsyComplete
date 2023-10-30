@@ -37,7 +37,7 @@ export default function RootLayout() {
 
 
 export const loader = async() => {
-	const data = await productsApiSlice.useGetProductsQuery();
+	const [getProducts, ] = productsApiSlice.useLazyGetProductsQuery();
   console.log(data);
   return data;
 }
